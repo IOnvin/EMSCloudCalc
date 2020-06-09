@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/ico" href="{% static 'OpenText/OpenText Logo/favicon.ico' %}">
+
+    <title>CMS Cloud | Calculator </title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{% static 'vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{% static 'vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="{% static 'vendors/iCheck/skins/flat/green.css' %}" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="{% static 'vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css' %}" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="{% static 'vendors/jqvmap/dist/jqvmap.min.css' %}" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="{% static 'build/css/custom.min.css' %}" rel="stylesheet">
+    <link href="custom.css" type="text/css" rel="stylesheet">
+   <!--  <link href="{% static 'build/css/sb-admin-2.min.css' %}" rel="stylesheet">-->
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index' %}">
+        <img src="{% static 'OpenText/OpenText Logo/OpenText-Logo-INV-2017.png' %}" class="img-fluid" alt="Responsive image">
+      </a>
+                <!--<a href="{#}" class="site_title"><i class="fa fa-paw"></i> <span>EMS Cloud Desk</span></a>-->
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="{% static 'build/images/vin3.png' %}" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>Vin Bolisetti</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a href="{% url 'index' %}"><i class="fa fa-home"></i> Home </a>
+                  </li>
+
+                  <li><a href="{% url 'addquote' %}"><i class="fa fa-plus-square"></i> Add Quote </a>
+                  </li>
+
+                  <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <!--<li><a href="page_403.html">403 Error</a></li>-->
+                      <li><a href="#">404 Error</a></li>
+                      <!--<li><a href="page_500.html">500 Error</a></li>-->
+                      <li><a href="#">Login Page</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <nav class="nav navbar-nav">
+              <ul class=" navbar-right">
+                <li class="nav-item dropdown open" style="padding-left: 15px;">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static 'build/images/vin3.png' %}" alt="">Vin Bolisetti
+                  </a>
+                  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"  href="javascript:;"> Profile</a>
+                      <a class="dropdown-item"  href="javascript:;">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Settings</span>
+                      </a>
+                  <a class="dropdown-item"  href="javascript:;">Help</a>
+                    <a class="dropdown-item"  href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  </div>
+                </li>
+
+                <li role="presentation" class="nav-item dropdown open">
+                  <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="dropdown-item">
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <div class="text-center">
+                        <a class="dropdown-item">
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+{% block content %}
+{% endblock %}
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Copyright © 2020 Open Text Corporation. All rights reserved | <a href="https://www.opentext.com/" target="_blank">OpenText</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{% static 'vendors/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'vendors/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- FastClick -->
+    <script src="{% static 'vendors/fastclick/lib/fastclick.js' %}"></script>
+    <!-- NProgress -->
+    <script src="{% static 'vendors/nprogress/nprogress.js' %}"></script>
+    <!-- Chart.js -->
+    <script src="{% static 'vendors/Chart.js/dist/Chart.min.js' %}"></script>
+    <!-- gauge.js -->
+    <script src="{% static 'vendors/gauge.js/dist/gauge.min.js' %}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{% static 'vendors/bootstrap-progressbar/bootstrap-progressbar.min.js' %}"></script>
+    <!-- iCheck -->
+    <script src="{% static 'vendors/iCheck/icheck.min.js' %}"></script>
+    <!-- Skycons -->
+    <script src="{% static 'vendors/skycons/skycons.js' %}"></script>
+    <!-- Flot -->
+    <script src="{% static 'vendors/Flot/jquery.flot.js' %}"></script>
+    <script src="{% static 'vendors/Flot/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'vendors/Flot/jquery.flot.time.js' %}"></script>
+    <script src="{% static 'vendors/Flot/jquery.flot.stack.js' %}"></script>
+    <script src="{% static 'vendors/Flot/jquery.flot.resize.js' %}"></script>
+    <!-- Flot plugins -->
+    <script src="{% static 'vendors/flot.orderbars/js/jquery.flot.orderBars.js' %}"></script>
+    <script src="{% static 'vendors/flot-spline/js/jquery.flot.spline.min.js' %}"></script>
+    <script src="{% static 'vendors/flot.curvedlines/curvedLines.js' %}"></script>
+    <!-- DateJS -->
+    <script src="{% static 'vendors/DateJS/build/date.js' %}"></script>
+    <!-- JQVMap -->
+    <script src="{% static 'vendors/jqvmap/dist/jquery.vmap.js' %}"></script>
+    <script src="{% static 'vendors/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+    <script src="{% static 'vendors/jqvmap/examples/js/jquery.vmap.sampledata.js' %}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{% static 'vendors/moment/min/moment.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{% static 'build/js/custom.min.js' %}"></script>
+
+    <!-- iCheck -->
+    <script src="{% static 'vendors/iCheck/icheck.min.js' %}"></script>
+    <!-- Datatables -->
+    <script src="{% static 'vendors/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-keytable/js/dataTables.keyTable.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js' %}"></script>
+    <script src="{% static 'vendors/datatables.net-scroller/js/dataTables.scroller.min.js' %}"></script>
+    <script src="{% static 'vendors/jszip/dist/jszip.min.js' %}"></script>
+    <script src="{% static 'vendors/pdfmake/build/pdfmake.min.js' %}"></script>
+    <script src="{% static 'vendors/pdfmake/build/vfs_fonts.js' %}"></script>
+
+
+    <!-- Location -->
+    <script>
+
+        $(document).ready(function(){
+
+            $('#id_location').empty();
+
+            var otStrings = JSON.parse('{{ json_ot_strings | escapejs }}');
+            var auStrings = JSON.parse('{{ json_au_strings | escapejs }}');
+            var azStrings = JSON.parse('{{ json_az_strings | escapejs }}');
+            var caStrings = JSON.parse('{{ json_ca_strings | escapejs }}');
+            var gcpStrings = JSON.parse('{{ json_gcp_strings | escapejs }}');
+            var awStrings = JSON.parse('{{ json_aw_strings | escapejs }}');
+            var cuStrings = JSON.parse('{{ json_cu_strings | escapejs }}');
+
+            $('#id_hostingProvider').on('change', function(){
+
+                var hostingProvider = $('#id_hostingProvider').val();
+
+                if(hostingProvider == 'OpenText'){
+
+                    $('#id_location').empty();
+
+                    var length = otStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = otStrings[i];
+                        $('#id_location').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(hostingProvider == 'OpenText Australia'){
+
+                    $('#id_location').empty();
+
+                    var length = auStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = auStrings[i];
+                        $('#id_location').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(hostingProvider == 'OpenText Canada'){
+
+                    $('#id_location').empty();
+
+                    var length = caStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = caStrings[i];
+                        $('#id_location').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(hostingProvider == 'GCP'){
+
+                    $('#id_location').empty();
+
+                    var length = gcpStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = gcpStrings[i];
+                        $('#id_location').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(hostingProvider == 'Azure'){
+
+                    $('#id_location').empty();
+
+                    var length = azStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = azStrings[i];
+                        $('#id_location').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(hostingProvider == 'AWS'){
+
+                    $('#id_location').empty();
+
+                    var length = awStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = awStrings[i];
+                        $('#id_location').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(hostingProvider == 'Customer'){
+
+                    $('#id_location').empty();
+
+                    var length = cuStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = cuStrings[i];
+                        $('#id_location').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else{
+
+                    $('#id_location').empty();
+
+                }
+
+            });
+
+        });
+    </script>
+    <!-- End of Location -->
+
+    <!-- Mutliple active regions? -->
+    <script>
+        $(document).ready(function(){
+
+            $('#id_multipleActiveRegions').empty();
+
+            var multiStrings = JSON.parse('{{ json_multi_strings | escapejs }}');
+
+            $('#id_hostingProvider').on('change', function(){
+
+                var hostingProvider = $('#id_hostingProvider').val();
+
+                if(hostingProvider == 'GCP'){
+
+                    $('#id_multipleActiveRegions').empty();
+
+                    var length = multiStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = multiStrings[i];
+                        $('#id_multipleActiveRegions').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else{
+
+                    $('#id_multipleActiveRegions').empty();
+
+                }
+
+            });
+
+        });
+    </script>
+    <!-- End of Mutliple active regions? -->
+
+   <!-- Disaster Recovery? --> <!-- Disaster Recovery? --> <!-- Disaster Recovery? -->
+
+    <!-- Location for OpenText US EMEA JAPAN -->
+    <script>
+        $(document).ready(function(){
+
+            $('#id_disasterRecovery').empty();
+
+            var usemeaStrings = JSON.parse('{{ json_usemea_strings | escapejs }}');
+            var japanStrings = JSON.parse('{{ json_japan_strings | escapejs }}');
+            var sydneyStrings = JSON.parse('{{ json_sydney_strings | escapejs }}');
+            var canadaStrings = JSON.parse('{{ json_canada_strings | escapejs }}');
+
+            var gcpusStrings = JSON.parse('{{ json_gcpus_strings | escapejs }}');
+            var gcpnaneStrings = JSON.parse('{{ json_gcpnane_strings | escapejs }}');
+            var gcpeuropeStrings = JSON.parse('{{ json_gcpeurope_strings | escapejs }}');
+            var gcpaustraliaStrings = JSON.parse('{{ json_gcpaustralia_strings | escapejs }}');
+            var gcpasiaStrings = JSON.parse('{{ json_gcpasia_strings | escapejs }}');
+            var gcpasiaeastStrings = JSON.parse('{{ json_gcpasiaeast_strings | escapejs }}');
+            var gcpasianeStrings = JSON.parse('{{ json_gcpasiane_strings | escapejs }}');
+            var gcpbrazilStrings = JSON.parse('{{ json_gcpbrazil_strings | escapejs }}');
+
+            var awsallStrings = JSON.parse('{{ json_awsall_strings | escapejs }}');
+
+
+
+            $('#id_location').on('change', function(){
+
+                var location = $('#id_location').val();
+
+                if(location == 'OT - US Twins'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = usemeaStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = usemeaStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'OT - EMEA Twins'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = usemeaStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = usemeaStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'OT - Japan Twins'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = japanStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = japanStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'OT - Sydney'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = sydneyStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = sydneyStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'OT - Toronto'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = canadaStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = canadaStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'GCP - US'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = gcpusStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = gcpusStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'GCP - NA-NE'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = gcpnaneStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = gcpnaneStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'GCP - Europe'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = gcpeuropeStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = gcpeuropeStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'GCP - Australia'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = gcpaustraliaStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = gcpaustraliaStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'GCP - Asia'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = gcpasiaStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = gcpasiaStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'GCP - Asia-East'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = gcpasiaeastStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = gcpasiaeastStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'GCP - Asia-NE'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = gcpasianeStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = gcpasianeStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'GCP - Brazil'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = gcpbrazilStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = gcpbrazilStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(location == 'US East (N.Virginia)' || location == 'US East (Ohio)' || location == 'US West (Oregon)' || location == 'US West (N. Calif.)' || location == 'Africa (Cape Town)' || location == 'Asia Pacific (Hong Kong)' || location == 'Asia Pacific (Mumbai)' || location == 'Asia Pacific (Osaka-Local)' || location == 'Asia Pacific (Seoul)' || location == 'Asia Pacific (Singapore)' || location == 'Asia Pacific (Sydney)' || location == 'Asia Pacific (Tokyo)' || location == 'Canada (Central)' || location == 'Europe (Frankfurt)' || location == 'Europe (Ireland)' || location == 'Europe (London)' || location == 'Europe (Milan)' || location == 'Europe (Paris)' || location == 'Europe (Stockholm)' || location == 'Middle East (Bahrain)' || location == 'South America (Sao Paulo)' || location == 'AWS GovCloud (US-East)' || location == 'AWS GovCloud (US-West)'){
+
+                    $('#id_disasterRecovery').empty();
+
+                    var length = awsallStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = awsallStrings[i];
+                        $('#id_disasterRecovery').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else{
+
+                    $('#id_disasterRecovery').empty();
+
+                }
+
+            });
+
+        });
+    </script>
+    <!-- End of Location for OpenText US EMEA JAPAN -->
+
+    <script>
+        $(document).ready(function(){
+
+            $('#id_enhancedDRPlanningHrsPcm').empty();
+
+        var drhrsStrings = JSON.parse('{{ json_drhrs_strings | escapejs }}');
+
+            $('#id_disasterRecovery').on('change', function(){
+
+                var disasterRecovery = $('#id_disasterRecovery').val();
+
+                if(disasterRecovery == 'OT - EDR via Twin DCs' || disasterRecovery == 'OT DC with GCP for EDR'){
+
+                    $('#id_enhancedDRPlanningHrsPcm').empty();
+
+                    var length = drhrsStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = drhrsStrings[i];
+                        $('#id_enhancedDRPlanningHrsPcm').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else{
+
+                    $('#id_enhancedDRPlanningHrsPcm').empty();
+
+                }
+
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#id_customerRequestedRTORPOSLA').empty();
+
+        var drsla1Strings = JSON.parse('{{ json_drsla1_strings | escapejs }}');
+        var drsla2Strings = JSON.parse('{{ json_drsla2_strings | escapejs }}');
+        var drsla3Strings = JSON.parse('{{ json_drsla3_strings | escapejs }}');
+
+            $('#id_disasterRecovery').on('change', function(){
+
+                var disasterRecovery = $('#id_disasterRecovery').val();
+
+                if(disasterRecovery == 'OT - Standard'){
+
+                    $('#id_customerRequestedRTORPOSLA').empty();
+
+                    var length = drsla1Strings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = drsla1Strings[i];
+                        $('#id_customerRequestedRTORPOSLA').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(disasterRecovery == 'OT - Standard' || disasterRecovery == 'OT - EDR via Twin DCs' || disasterRecovery == 'OT DC with GCP for EDR' || disasterRecovery == 'GCP Multi-region EDR (geographic separation)' || disasterRecovery == 'Azure Multi-region EDR (geographic separation)' || disasterRecovery == 'AWS Multi-region EDR (geographic separation)'){
+
+                    $('#id_customerRequestedRTORPOSLA').empty();
+
+                    var length = drsla2Strings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = drsla2Strings[i];
+                        $('#id_customerRequestedRTORPOSLA').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else if(disasterRecovery == 'GCP Single-region Multi-Zone DR' || disasterRecovery == 'Azure Single-region Multi-Zone DR' || disasterRecovery == 'AWS Single-region Multi-Zone DR'){
+
+                    $('#id_customerRequestedRTORPOSLA').empty();
+
+                    var length = drsla3Strings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = drsla3Strings[i];
+                        $('#id_customerRequestedRTORPOSLA').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else{
+
+                    $('#id_customerRequestedRTORPOSLA').empty();
+
+                }
+
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#id_encryptionAtRest').empty();
+
+        var encatrestStrings = JSON.parse('{{ json_encatrest_strings | escapejs }}');
+
+            $('#id_location').on('change', function(){
+
+                var location = $('#id_location').val();
+
+                if(location == 'OT - Toronto'){
+
+                    $('#id_encryptionAtRest').empty();
+
+                    var length = encatrestStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = encatrestStrings[i];
+                        $('#id_encryptionAtRest').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else{
+
+                    $('#id_encryptionAtRest').empty();
+
+                }
+
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#id_numberOfSiteToSiteVPNs').empty();
+
+        var s2svpnsStrings = JSON.parse('{{ json_s2svpns_strings | escapejs }}');
+
+            $('#id_changeRequestOrAddOnOnly').on('change', function(){
+
+                var changeRequestOrAddOnOnly = $('#id_changeRequestOrAddOnOnly').val();
+
+                if(changeRequestOrAddOnOnly == 'Yes'){
+
+                    $('#id_numberOfSiteToSiteVPNs').empty();
+
+                    var length = s2svpnsStrings.length;
+                    var i;
+                    for(i=0; i < length; i++){
+
+                        job = s2svpnsStrings[i];
+                        $('#id_numberOfSiteToSiteVPNs').append(
+
+                            `
+                            <option value="${job}">
+                                ${job}
+                            </option>
+                            `
+
+                        );
+
+                    }
+
+                }
+                else{
+
+                    $('#id_numberOfSiteToSiteVPNs').empty();
+
+                }
+
+            });
+
+        });
+    </script>
+
+  </body>
+</html>
